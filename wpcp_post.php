@@ -157,7 +157,12 @@ abstract class MWCPPost
         if ( !is_array( $taxa ) )
         {
             $taxa = get_taxonomies( array( 'public' => 1, 'hierarchical' => 1 ), 'objects' );
-            $taxa = array_filter( $taxa, create_function( '$a',  'return !!$a->rewrite;' ) );
+            $taxa = array_filter(
+                $taxa,
+                function( $a ) {
+                    return !!$a->rewrite;
+                }
+            );
         }
 
         $return = array();

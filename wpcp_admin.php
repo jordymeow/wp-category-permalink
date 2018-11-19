@@ -78,15 +78,19 @@ class MWCP_Admin extends MeowApps_Admin {
 
 									$fields = array();
 					        $post_types = MWCPPost::post_types();
-					        $map = create_function( '$a', 'return $a->query_var;' );
 									foreach ( $post_types as $type => $post_info )
 					        {
 										echo "<h4>$post_info->label</h4>";
 
-				            $taxa = MWCPPost::taxonomies( $type );
-				            if ( empty( $taxa ) )
-				                continue;
-				            $query_vars = array_map( $map, $taxa );
+							$taxa = MWCPPost::taxonomies( $type );
+							if ( empty( $taxa ) )
+								continue;
+							$query_vars = array_map(
+								function( $a ) {
+									return $a->query_var;
+								},
+								$taxa
+							);
 										global $wp_rewrite;
 						        $post_link = $wp_rewrite->get_extra_permastruct( $type );
 				            echo __( '<small>Permalink: ' ) . $post_link . '<br>' .
