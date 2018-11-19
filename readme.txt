@@ -2,6 +2,7 @@
 Contributors: TigrouMeow, Okonomiyaki3000
 Tags: category, permalink, woocommerce
 Requires at least: 3.5
+Requires PHP: 5.3
 Tested up to: 4.9
 Stable tag: 3.3.0
 
@@ -43,6 +44,9 @@ Nothing to be careful about here, just update :)
 2. Check your permalinks in the posts list. If a heart is present, it means a category (or taxonomy) has been chosen.
 
 == Changelog ==
+
+= dev-master =
+* Compatibility with PHP 7.2 by removing create_function calls.
 
 = 3.3.0 =
 * Everything is released for free.
