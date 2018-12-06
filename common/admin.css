@@ -1,4 +1,64 @@
-/* MEOW BOX (SETTINGS BOX) */
+/* MEOW-TABS  */
+
+.meow-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+}
+
+.meow-tabs * {
+	box-sizing: border-box;
+}
+
+.meow-tabs .meow-tabs-input {
+	position: absolute;
+	opacity: 0;
+}
+
+.meow-tabs .meow-tabs-label {
+	width: auto;
+	padding: 4px 12px;
+	background: #3c3c3c;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: white;
+	transition: background 0.1s, color 0.1s;
+}
+
+.meow-tabs .inside {
+	display: none;
+	width: 100%;
+}
+
+.meow-tabs .meow-tabs-label:hover {
+	background: #36495f;
+}
+
+.meow-tabs .meow-tabs-label:active {
+	background: #3C82C7;
+}
+
+.meow-tabs .meow-tabs-input:focus + .meow-tabs-label {
+	box-shadow: inset 0px 0px 0px 3px #2aa1c0;
+	z-index: 1;
+}
+
+.meow-tabs .meow-tabs-input:checked + .meow-tabs-label {
+	background: #3C82C7 !important;
+}
+
+.meow-tabs-input:checked + .meow-tabs-label + .inside {
+	display: block;
+	order: 99;
+}
+
+.meow-tabs .inside {
+	background: #fff;
+}
+
+/* MEOW-BOX  */
 
 .meow-box {
 	box-sizing: border-box;
@@ -74,7 +134,7 @@
 	padding: 10px 10px;
 }
 
-.meow-box p.submit {
+.meow-box div.submit {
 	text-align: right;
 	margin: 10px -10px -10px -10px;
 	padding: 7px 10px 10px 0px !important;

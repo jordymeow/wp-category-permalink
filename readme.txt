@@ -3,24 +3,31 @@ Contributors: TigrouMeow, Okonomiyaki3000
 Tags: category, permalink, woocommerce
 Requires at least: 3.5
 Requires PHP: 5.3
-Tested up to: 4.9
-Stable tag: 3.3.0
+Tested up to: 5.0
+Stable tag: 3.4.0
 
 Allows manual selection of a 'main' category for each post for nicer permalinks and better SEO.
 
 == Description ==
 
-This plugin allows you to select a main category (or taxonomy) for your posts for nicer permalinks and SEO. For more information, please have a look here: https://meowapps.com/wp-category-permalink/.
+This plugin allows you to select a main category (or taxonomy) for your posts for nicer permalinks and SEO.
 
-**What it does?** A custom structure such as **/%category%/%postname%/** should be usually chosen for your permalinks. By default, this %category% is selected automatically (using the lowest ID) in the case your post is assigned to more than one category. This plugin will let you pick the category of your choice from the 'Post Edit' page. The chosen category is shown in bold on the 'Posts List' page and the 'Post Edit' page.
+=== What it does? === 
+A custom structure such as **/%category%/%postname%/** should be usually chosen for your permalinks. By default, this %category% is selected automatically (using the lowest ID) in the case your post is assigned to more than one category. This plugin will let you pick the category of your choice from the 'Post Edit' page. The chosen category is shown in bold on the 'Posts List' page and the 'Post Edit' page.
 
-**Posts List**. Below the title, you will see the permalink currently set-up for this entry. If a heart is present, it means that the category (or taxonomy) has been picked up.
+=== Posts List ===
+Below the title, you will see the permalink currently set-up for this entry. If a heart is present, it means that the category (or taxonomy) has been picked up.
 
-**Please contribute**. It works for standard setups, but the plugin might be modified depending on the case. Don't hesitate to participate in making this plugin better. The official git for this project is here: https://github.com/jordymeow/wp-category-permalink.
+=== Breadcrumbs ===
+They have their own way of working and can't be supported automatically by default because they are created by specific themes or plugins. If you encounter issues with breadcrumbs, please say so in the Support Threads and let's see how we can make it work.
 
-**Breadcrumbs**. They have their own way of working and can't be supported automatically by default because they are created by specific themes or plugins. If you encounter issues with breadcrumbs, please say so in the Support Threads and let's see how we can make it work.
+=== Compatibility ===
+It works with any theme or plugin that creates post types and taxonomies but it looks like it doesn't work with the plugin called "Types". You can use "Custom Post Type UI" instead.
 
-**Compatibility**. It works with any theme or plugin that creates post types and taxonomies but it looks like it doesn't work with the plugin called "Types". You can use "Custom Post Type UI" instead.
+=== Please contribute ===
+It works for standard setups, but the plugin might be modified depending on the case. Don't hesitate to participate in making this plugin better. The official git for this project is here: https://github.com/jordymeow/wp-category-permalink. Thanks to those contributors:
+
+* David Remer (https://github.com/websupporter)
 
 Languages: English.
 
@@ -45,8 +52,8 @@ Nothing to be careful about here, just update :)
 
 == Changelog ==
 
-= dev-master =
-* Compatibility with PHP 7.2 by removing create_function calls.
+= 3.4.0 =
+* Compatibility with PHP 7.2 by removing create_function calls. Thanks to David (https://github.com/jordymeow/wp-category-permalink/pull/3#issuecomment-443597831).
 
 = 3.3.0 =
 * Everything is released for free.
