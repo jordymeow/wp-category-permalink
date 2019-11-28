@@ -1,26 +1,41 @@
-// import {PluginPostStatusInfo} from "@wordpress/edit-post";
+/**
+ * This peace of JS-Code will add a DropDown selection menu in the gutenberg editor. The new element
+ * will allow to modify the canonical permalink option of this plugin.
+ */
+
 var __ = wp.i18n.__;
+
 var PluginSidebar = wp.editPost.PluginSidebar,
     PluginSidebarMoreMenuItem = wp.editPost.PluginSidebarMoreMenuItem,
     PluginPostStatusInfo = wp.editPost.PluginPostStatusInfo;
+
 var PanelBody = wp.components.PanelBody,
     TextControl = wp.components.TextControl,
     CheckboxControl = wp.components.CheckboxControl,
     SelectControl = wp.components.SelectControl;
+
 var Component = wp.element.Component,
     Fragment = wp.element.Fragment;
+
 var withSelect = wp.data.withSelect,
     withDispatch = wp.data.withDispatch;
+
 var withState = wp.compose.withState,
     compose = wp.compose.compose;
+
 var registerPlugin = wp.plugins.registerPlugin;
 
+/**
+ * Definition of the new control element.
+ * 
+ * @param {*} props 
+ */
 var CanonicalCategory = function CanonicalCategory(props) {
     return wp.element.createElement(
-      Fragment, 
-      null, 
-      wp.element.createElement("p", null, "Canonical category"), 
-      wp.element.createElement(
+        Fragment, 
+        null, 
+        wp.element.createElement("p", null, "Canonical category"), 
+        wp.element.createElement(
             SelectControl, 
             {
                 value: props.canonicalCatId,
@@ -33,6 +48,10 @@ var CanonicalCategory = function CanonicalCategory(props) {
     );
 };
 
+/**
+ * Data (property) assembly for the CanonicalCategory element. This chain will take care of 
+ * all the data synchonization and automatic update of the element.
+ */
 CanonicalCategory = compose(
     [
         withSelect(function (select) {
@@ -82,8 +101,8 @@ CanonicalCategory = compose(
         })
     ])(CanonicalCategory);
 
+// Registrate the new element to the PluginPostStatusInfo sidebar element
 registerPlugin('babymarkt-canonical-category', {
-    icon: 'admin-site',
     render: function render() {
         return wp.element.createElement(
             PluginPostStatusInfo, 
