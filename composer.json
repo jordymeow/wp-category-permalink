@@ -1,6 +1,6 @@
 {
     "name": "babymarkt/wp-category-permalink",
     "description": "Wordpress plugin which enable the user to set a canonical category for a post.",
-    "type": "library",
+    "type": "wordpress-plugin",
     "require": {}
 }
