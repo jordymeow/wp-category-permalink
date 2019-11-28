@@ -21,7 +21,28 @@ abstract class MWCPUI
     public static function enqueue_script()
     {
         $url = plugins_url('/wp-category-permalink.js', dirname(__FILE__) . '/../' );
+
         wp_enqueue_script( 'wp-category-permalink.js', $url, array( 'jquery' ), '3.2.3', false );
+        
+        // Register the Gutenberg javascript component
+        wp_enqueue_script( 
+            'wp-category-permalink-gutenberg.js', 
+            plugins_url('wp-category-permalink-gutenberg.js', __FILE__),             
+            [
+                'wp-blocks',
+                'wp-i18n',
+                'wp-element',
+                'wp-editor',
+                'wp-edit-post',
+                'wp-components',
+                'wp-data',
+                'wp-plugins',
+                'wp-edit-post',
+                'wp-api'
+            ], 
+            false, 
+            false 
+        );
     }
 
     public static function post_js()

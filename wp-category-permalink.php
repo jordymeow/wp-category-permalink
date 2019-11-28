@@ -47,3 +47,14 @@ add_filter( 'post_type_link', array('MWCPPost', 'post_type_link'), 10, 4 );
 
 // Disable the WPSEO v3.1+ Primary Category feature.
 add_filter( 'wpseo_primary_term_taxonomies', '__return_empty_array' );
+
+// Register the _category_permalink meta field
+register_meta('post', '_category_permalink', [
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'integer',
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        }
+    ]
+);
