@@ -67,26 +67,28 @@ CanonicalCategory = compose(
         withSelect(function (select, props) {
             var categoryarray = [];
 
-            for (var i = 0; i < props.postCategories.length; i++) {
-                var categorieId = props.postCategories[i];
-                var category = select('core').getEntityRecord('taxonomy', 'category', categorieId);
-
-                if (category) {
-                    categoryarray.push({
-                        label: category.name,
-                        value: category.id
-                    });
-                } else {
-                    categoryarray.push({
-                        label: categorieId + ' - Name is loading',
-                        value: categorieId
-                    });
+            if (props.postCategories) {
+                for (var i = 0; i < props.postCategories.length; i++) {
+                    var categorieId = props.postCategories[i];
+                    var category = select('core').getEntityRecord('taxonomy', 'category', categorieId);
+    
+                    if (category) {
+                        categoryarray.push({
+                            label: category.name,
+                            value: category.id
+                        });
+                    } else {
+                        categoryarray.push({
+                            label: categorieId + ' - Name is loading',
+                            value: categorieId
+                        });
+                    }
                 }
+    
+                return {
+                    categoryarray: categoryarray
+                };
             }
-
-            return {
-                categoryarray: categoryarray
-            };
         }), 
         withDispatch(function (dispatch) {
             return {
